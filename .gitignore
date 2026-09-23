@@ -1,0 +1,36 @@
+# Custom trained models
+*.zip
+!RL/robo1_getup_ppo.zip
+
+# My policy exports
+policy_network.h
+!Arduino/robo03/src/policy_network.h
+
+# Local reference checkout, not tracked
+upstream/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Generated logs
+MUJOCO_LOG.TXT
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# PlatformIO build output / downloaded toolchains+libs
+.pio-core/
+Arduino/robo03/.pio/
+Arduino/robo03/.pio-core/
+
+# Local experiment records
+.audit/
+Arduino/robo03/.audit/
