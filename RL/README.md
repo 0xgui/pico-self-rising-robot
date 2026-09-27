@@ -34,6 +34,15 @@ uv pip install -r requirements.txt
 python play_robo1_policy.py
 ```
 
+For a clean recording view with a closer camera and no viewer panels, run:
+
+```bash
+python play_robo1_policy.py --studio
+```
+
+The studio camera follows the robot as it moves across the floor. The colors,
+lighting, and floor pattern are defined in `robo1.xml`.
+
 To play back from a specific initial pose:
 
 ```bash
