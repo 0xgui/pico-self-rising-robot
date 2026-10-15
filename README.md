@@ -1,5 +1,11 @@
 # pico — self-righting robot
 
+<p align="center">
+  <img src="docs/media/pico-getting-up.gif" alt="Pico standing itself back up after being knocked over" width="300">
+</p>
+
+**[Read the story on Binary Paths](https://binarypaths.substack.com/p/i-built-a-tiny-robot-that-refuses)**: *I built a tiny robot that refuses to stay down.*
+
 Pico is my build of a small, two-servo robot that tries to stand itself back up after being knocked over. An M5Stack ATOM Matrix senses its orientation and runs a neural-network policy that moves the two arms. Once flashed, the control loop runs on the robot; the MuJoCo simulation is used to train and inspect the policy.
 
 This build starts from [HomeMadeGarbage's SelfRisingRobot](https://github.com/homemadegarbage/SelfRisingRobot). I have adapted the firmware to my wiring and servo directions and set up a PlatformIO workflow. The included 3D models, simulation, and pretrained policy come from that original project.
@@ -20,6 +26,19 @@ The pretrained policy was developed in MuJoCo with Stable-Baselines3 PPO and exp
 
 The code is configured for this hardware, but I have not documented a repeatable hardware getup success rate or results from my own training run yet.
 
+## Build notes from the article
+
+The article walks through the problems I hit getting this build to stand up. The short version, with the media from the post:
+
+| | |
+|---|---|
+| <img src="docs/media/pico.jpg" alt="Pico, assembled, on the desk" width="260"> | <img src="docs/media/first-parts-printing.gif" alt="The first parts being 3D printed" width="260"> |
+| Pico. | First parts being printed. |
+| <img src="docs/media/reprinted-part.png" alt="The reprinted arm part, in red, mounted on a servo" width="260"> | <img src="docs/media/loose-wires.jpg" alt="Loose servo wires after testing" width="260"> |
+| Still have nightmares about it: the part I kept reprinting, until I ran out of black filament and printed it in red. | Wires just got loose after some tests. |
+| <img src="docs/media/imu-orientation.gif" alt="Pico moving with the board mounted in a different orientation from the original build" width="260"> | <img src="docs/media/usb-power-brownout.gif" alt="Pico struggling while powered over USB" width="260"> |
+| That little grey cube's position was the issue: the board is mounted differently from the original build, so the tilt math was 180 degrees off. | USB ports didn't have enough power to handle the motors' load. Running on the battery fixed it. |
+
 ## Parts used in this build
 
 | Part | Spec | Qty | Approx Cost |
@@ -35,6 +54,11 @@ The code is configured for this hardware, but I have not documented a repeatable
 See [`BOM.md`](BOM.md) for AliExpress links and ordering details.
 
 ## Try the simulation
+
+<p align="center">
+  <img src="docs/media/pico-in-simulation.gif" alt="Pico getting up in the MuJoCo simulation" width="500">
+  <br><em>Pico in simulation.</em>
+</p>
 
 ```bash
 cd RL
@@ -98,5 +122,6 @@ pico-self-rising-robot/
 ├── 3Dmodel/            # Printable robot parts
 ├── Arduino/            # Firmware, PlatformIO project, and policy header
 ├── RL/                 # MuJoCo simulation, training code, and PPO model
+├── docs/media/         # Photos and GIFs from the Binary Paths article
 └── improvements/       # Proposed experiments
 ```
