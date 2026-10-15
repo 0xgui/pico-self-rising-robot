@@ -36,7 +36,7 @@ The article walks through the problems I hit getting this build to stand up. The
 | Pico. | First parts being printed. |
 | <img src="docs/media/reprinted-part.png" alt="The reprinted arm part, in red, mounted on a servo" width="260"> | <img src="docs/media/loose-wires.jpg" alt="Loose servo wires after testing" width="260"> |
 | Still have nightmares about it: the part I kept reprinting, until I ran out of black filament and printed it in red. | Wires just got loose after some tests. |
-| <img src="docs/media/imu-orientation.gif" alt="Pico moving while its board is mounted in the original orientation" width="260"> | <img src="docs/media/usb-power-brownout.gif" alt="Pico struggling while powered over USB" width="260"> |
+| <img src="docs/media/imu-orientation.gif" alt="Pico moving with the board mounted in a different orientation from the original build" width="260"> | <img src="docs/media/usb-power-brownout.gif" alt="Pico struggling while powered over USB" width="260"> |
 | That little grey cube's position was the issue: the board is mounted differently from the original build, so the tilt math was 180 degrees off. | USB ports didn't have enough power to handle the motors' load. Running on the battery fixed it. |
 
 ## Parts used in this build
